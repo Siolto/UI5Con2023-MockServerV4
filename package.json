@@ -1,17 +1,29 @@
 {
-  "name": "odata-v4-tutorial",
-  "private": true,
-  "version": "1.0.0",
-  "author": "SAP SE",
-  "description": "UI5 Demo App - ODataV4 Tutorial",
-  "scripts": {
-    "start": "ui5 serve --open 'index.html'"
-  },
-  "dependencies": {
-    "@openui5/sap.f": "^1",
-    "@openui5/sap.m": "^1",
-    "@openui5/sap.ui.core": "^1",
-    "@openui5/sap.ui.layout": "^1",
-    "@openui5/themelib_sap_belize": "^1"
-  }
+    "name": "UI5Con2023-MockServerV4",
+    "version": "1.0.0",
+    "private": true,
+    "description": "UI5Con2023 Mockserver for ODataV4 Applications",
+    "author": "simon.coen@js-soft.com,volker.buzek@js-soft.com",
+    "license": "Apache-2.0",
+    "scripts": {
+        "start": "ui5 serve",
+        "wdi5": "wdio run webapp/test/wdio.conf.ts"
+    },
+    "devDependencies": {
+        "@sap-ux/ui5-middleware-fe-mockserver": "^2.1.55",
+        "@sapui5/ts-types-esm": "latest",
+        "@types/mocha": "^10.0.1",
+        "@ui5/cli": "^3.0.0",
+        "@wdio/cli": "^7.30.1",
+        "@wdio/local-runner": "^7.30.1",
+        "@wdio/mocha-framework": "^7.26.0",
+        "@wdio/spec-reporter": "^7.29.1",
+        "chromedriver": "latest",
+        "ts-node": "^10.9.1",
+        "typescript": "^4.9.5",
+        "ui5-middleware-livereload": "^0.7.2",
+        "ui5-tooling-transpile": "^0.3.6",
+        "wdio-chromedriver-service": "^7.3.2",
+        "wdio-ui5-service": "latest"
+    }
 }

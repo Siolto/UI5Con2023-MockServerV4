@@ -1,79 +1,120 @@
 {
-	"_version": "1.21.0",
-	"sap.app": {
-		"ach" : "CA-UI5-COR",
-		"id": "sap.ui.core.tutorial.odatav4",
-		"type": "application",
-		"i18n": {
-			"bundleUrl": "i18n/i18n.properties",
-			"supportedLocales": [
-				""
-			],
-			"fallbackLocale": ""
-		},
-		"applicationVersion": {
-			"version": "1.0.0"
-		},
-		"title": "{{appTitle}}",
-		"description": "{{appDescription}}",
-		"dataSources": {
-			"default": {
-				"uri": "https://services.odata.org/TripPinRESTierService/(S(id))/",
-				"type": "OData",
-				"settings": {
-					"odataVersion": "4.0"
-				}
-			}
-		}
-	},
-	"sap.ui": {
-		"technology": "UI5",
-		"deviceTypes": {
-			"desktop": true,
-			"tablet": true,
-			"phone": true
-		}
-	},
-	"sap.ui5": {
-		"rootView": {
-			"viewName": "sap.ui.core.tutorial.odatav4.view.App",
-			"type": "XML",
-			"async": true,
-			"id": "appView"
-		},
-		"dependencies": {
-			"minUI5Version": "1.96.0",
-			"libs": {
-				"sap.m": {},
-				"sap.ui.core": {},
-				"sap.ui.layout": {}
-			}
-		},
-		"contentDensities": {
-			"compact": true,
-			"cozy": true
-		},
-		"handleValidation": true,
-		"models": {
-			"i18n": {
-				"type": "sap.ui.model.resource.ResourceModel",
-				"settings": {
-					"bundleName": "sap.ui.core.tutorial.odatav4.i18n.i18n",
-					"supportedLocales": [
-						""
-					],
-					"fallbackLocale": ""
-				}
-			},
-			"": {
-				"dataSource": "default",
-				"preload": true,
-				"settings": {
-					"autoExpandSelect": true,
-					"earlyRequests": true,
-					"operationMode": "Server"
-				}
-			}
-		}
-	}
+  "_version": "1.12.0",
+  "sap.app": {
+    "id": "test.Sample.tsapp",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/V4/Northwind/Northwind.svc/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {},
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "dependencies": {
+      "minUI5Version": "1.100.0",
+      "libs": {
+        "sap.ui.core": {},
+        "sap.ui.layout": {},
+        "sap.ui.unified": {},
+        "sap.ui.webc.main": {},
+        "sap.m": {},
+        "sap.fe.core": {
+          "lazy": true
+        },
+        "sap.fe.macros": {
+          "lazy": true
+        },
+        "sap.fe.templates": {
+          "lazy": true
+        },
+        "sap.ui.codeeditor": {
+          "lazy": true
+        }
+      }
+    },
+    "handleValidation": true,
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "test.Sample.tsapp.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "settings": {
+          "synchronizationMode": "None",
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      }
+    },
+    "routing": {
+      "routes": [
+        {
+          "name": "RouteMain",
+          "pattern": "",
+          "target": ["TargetMain"]
+        },
+        {
+          "name": "RouteMainNamed",
+          "pattern": "main",
+          "target": ["TargetMain"]
+        },
+        {
+          "name": "RouteOther",
+          "pattern": "other",
+          "target": ["TargetOther"]
+        }
+      ],
+      "targets": {
+        "TargetMain": {
+          "type": "Component",
+          "id": "TargetMain",
+          "name": "sap.fe.core.fpm",
+          "options": {
+            "settings": {
+              "viewName": "test.Sample.tsapp.view.Main",
+              "contextPath": "/"
+            }
+          }
+        },
+        "TargetOther": {
+          "type": "Component",
+          "id": "TargetOther",
+          "name": "sap.fe.core.fpm",
+          "options": {
+            "settings": {
+              "viewName": "test.Sample.tsapp.view.Other",
+              "contextPath": "/Employees"
+            }
+          }
+        }
+      }
+    }
+  }
 }
