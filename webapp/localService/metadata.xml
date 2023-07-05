@@ -158,7 +158,10 @@
                 </NavigationProperty>
                 <NavigationProperty Name="Orders"
                     Type="Collection(NorthwindModel.Order)"
-                    Partner="Employee" />
+                    Partner="Employee">
+                    <ReferentialConstraint Property="EmployeeID"
+                        ReferencedProperty="EmployeeID" />
+                </NavigationProperty>
                 <NavigationProperty Name="Territories"
                     Type="Collection(NorthwindModel.Territory)"
                     Partner="Employees" />
@@ -849,12 +852,17 @@
                     Nullable="false"
                     MaxLength="8" />
             </EntityType>
+            <Function Name="MyCustomAction">
+                <ReturnType Type="NorthwindModel.Employee" />
+            </Function>
         </Schema>
         <Schema Namespace="ODataWebExperimental.Northwind.Model"
             xmlns="http://docs.oasis-open.org/odata/ns/edm">
             <EntityContainer Name="NorthwindEntities"
                 p4:LazyLoadingEnabled="true"
                 xmlns:p4="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+                <FunctionImport Name="MyCustomAction"
+                    Function="NorthwindModel.MyCustomAction" />
                 <EntitySet Name="Categories"
                     EntityType="NorthwindModel.Category">
                     <NavigationPropertyBinding Path="Products"

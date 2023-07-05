@@ -1,4 +1,4 @@
-import { wdi5 } from "wdio-ui5-service"
+import { wdi5 } from "wdio-ui5-service";
 
 class Other {
     /**
@@ -8,27 +8,24 @@ class Other {
         await (
             await browser.asControl({
                 selector: {
-                    controlType: "sap.m.ColumnListItem",
+                    controlType: "sap.ui.webc.main.StandardListItem",
                     viewId: "test.Sample.tsapp::TargetOther",
-                    descendant: {
-                        controlType: "sap.m.Text",
-                        properties: {
-                            text: text
-                        }
-                    }
-                }
+                    properties: {
+                        text: text,
+                    },
+                },
             })
-        ).press()
+        ).press();
     }
 
     async iFilterTableWithCityWithValueHelp(city: string) {
         await (
             await browser.asControl({
                 selector: {
-                    id: "test.Sample.tsapp::TargetOther--myTable-content-settings-img"
-                }
+                    id: "test.Sample.tsapp::TargetOther--myTable-content-settings-img",
+                },
             })
-        ).press()
+        ).press();
 
         await (
             await browser.asControl({
@@ -37,15 +34,15 @@ class Other {
                     viewName: "test.Sample.tsapp.view.Other",
                     viewId: "test.Sample.tsapp::TargetOther",
                     properties: {
-                        text: "Filtern"
+                        text: "Filtern",
                     },
                     searchOpenDialogs: true,
                     interaction: {
-                        idSuffix: "text"
-                    }
-                }
+                        idSuffix: "text",
+                    },
+                },
             })
-        ).press()
+        ).press();
 
         await (
             await browser.asControl({
@@ -54,24 +51,24 @@ class Other {
                     viewName: "test.Sample.tsapp.view.Other",
                     viewId: "test.Sample.tsapp::TargetOther",
                     properties: {
-                        valueState: "None"
+                        valueState: "None",
                     },
                     searchOpenDialogs: true,
                     interaction: {
-                        idSuffix: "inner"
-                    }
-                }
+                        idSuffix: "inner",
+                    },
+                },
             })
-        ).enterText("City")
+        ).enterText("City");
 
         await (
             await browser.asControl({
                 selector: {
                     id: "test.Sample.tsapp::TargetOther--myTable-content::AdaptationFilterField::City-inner-vhi",
-                    searchOpenDialogs: true
-                }
+                    searchOpenDialogs: true,
+                },
             })
-        ).press()
+        ).press();
 
         await (
             await browser.asControl({
@@ -80,12 +77,12 @@ class Other {
                     viewName: "test.Sample.tsapp.view.Other",
                     viewId: "test.Sample.tsapp::TargetOther",
                     properties: {
-                        text: city
+                        text: city,
                     },
-                    searchOpenDialogs: true
-                }
+                    searchOpenDialogs: true,
+                },
             })
-        ).press()
+        ).press();
 
         await (
             await browser.asControl({
@@ -94,21 +91,21 @@ class Other {
                     viewName: "test.Sample.tsapp.view.Other",
                     viewId: "test.Sample.tsapp::TargetOther",
                     properties: {
-                        text: "OK"
+                        text: "OK",
                     },
                     ancestor: {
                         viewName: "test.Sample.tsapp.view.Other",
                         viewId: "test.Sample.tsapp::TargetOther",
                         controlType: "sap.m.Dialog",
                         properties: {
-                            title: "City"
+                            title: "City",
                         },
-                        searchOpenDialogs: true
+                        searchOpenDialogs: true,
                     },
-                    searchOpenDialogs: true
-                }
+                    searchOpenDialogs: true,
+                },
             })
-        ).press()
+        ).press();
 
         await (
             await browser.asControl({
@@ -117,22 +114,22 @@ class Other {
                     viewName: "test.Sample.tsapp.view.Other",
                     viewId: "test.Sample.tsapp::TargetOther",
                     properties: {
-                        text: "OK"
+                        text: "OK",
                     },
-                    searchOpenDialogs: true
-                }
+                    searchOpenDialogs: true,
+                },
             })
-        ).press()
+        ).press();
     }
 
     async iClickOnAddLineItemButton() {
         await (
             await browser.asControl({
                 selector: {
-                    id: "test.Sample.tsapp::TargetOther--idAddLineItemButton"
-                }
+                    id: "test.Sample.tsapp::TargetOther--idAddLineItemButton",
+                },
             })
-        ).press()
+        ).press();
     }
     /**
      * define assertions for the page objects
@@ -143,25 +140,25 @@ class Other {
             selector: {
                 id: "test.Sample.tsapp::TargetOther--OtherPage-title",
                 properties: {
-                    text: text
-                }
-            }
-        })
-        expect(await title.isInitialized()).toBeTruthy()
+                    text: text,
+                },
+            },
+        });
+        expect(await title.isInitialized()).toBeTruthy();
     }
 
     async iShouldSeeEntriesInList(amount: number) {
         const list = await browser.asControl({
             forceSelect: true,
             selector: {
-                id: "test.Sample.tsapp::TargetOther--myTable-content-innerTable",
+                id: "test.Sample.tsapp::TargetOther--PeopleList",
                 aggregationLengthEquals: {
                     name: "items",
-                    length: amount
-                }
-            }
-        })
-        expect(await list.isInitialized()).toBeTruthy()
+                    length: amount,
+                },
+            },
+        });
+        expect(await list.isInitialized()).toBeTruthy();
     }
 
     async iShouldSeeHighlightedListItem(textProperty: string) {
@@ -171,16 +168,16 @@ class Other {
                 id: "idTextFieldClickResult",
                 viewId: "test.Sample.tsapp::TargetOther",
                 properties: {
-                    text: textProperty
-                }
-            }
-        })
-        expect(await text.isInitialized()).toBeTruthy()
+                    text: textProperty,
+                },
+            },
+        });
+        expect(await text.isInitialized()).toBeTruthy();
     }
 
     async open() {
-        await wdi5.goTo("#/Other")
+        await wdi5.goTo("#/Other");
     }
 }
 
-export default new Other()
+export default new Other();

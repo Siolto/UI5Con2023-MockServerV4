@@ -23,15 +23,11 @@ describe("Journey Recorder", async () => {
         await OtherPage.iShouldSeeEntriesInList(9);
     });
     it("click on list item", async () => {
-        await OtherPage.iClickOnListItem("Andrew");
+        await OtherPage.iClickOnListItem("Andrew Fuller");
         await OtherPage.iShouldSeeHighlightedListItem("Andrew Fuller");
     });
     it("add line item", async () => {
         await OtherPage.iClickOnAddLineItemButton();
         await OtherPage.iShouldSeeEntriesInList(10);
-    });
-    it("filter table with city", async () => {
-        await OtherPage.iFilterTableWithCityWithValueHelp("London");
-        await OtherPage.iShouldSeeEntriesInList(4);
     });
 });

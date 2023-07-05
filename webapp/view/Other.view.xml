@@ -11,13 +11,12 @@
 		showNavButton="true"
 		navButtonPress="onNavBack">
 		<content>
-			<!-- <webc:List id="PeopleList" headerText="{i18n>otherPage.listHeader}" items="{/Employees}" itemClick="onItemClick">
+			<webc:List id="PeopleList"
+				headerText="{i18n>otherPage.listHeader}"
+				items="{/Employees}"
+				itemClick="onItemClick">
 				<webc:StandardListItem text="{FirstName} {LastName}" />
-			</webc:List> -->
-			<macros:Table metaPath="@com.sap.vocabularies.UI.v1.LineItem"
-				id="myTable"
-				rowPress=".onRowPressed" />
-
+			</webc:List>
 			<VBox id="VBox"
 				class="sapUiMediumMargin">
 				<Label text="Pressed List Item Selection" />
@@ -26,6 +25,9 @@
 				<Button id="idAddLineItemButton"
 					text="add Line Item"
 					press=".onAddTableItem" />
+				<Button id="fireActionButton"
+					text="fire action"
+					press="onActionPressed" />
 			</VBox>
 		</content>
 	</Page>
