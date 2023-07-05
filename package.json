@@ -10,7 +10,6 @@
         "wdi5": "wdio run webapp/test/wdio.conf.ts"
     },
     "devDependencies": {
-        "@sap-ux/ui5-middleware-fe-mockserver": "^2.1.55",
         "@sapui5/ts-types-esm": "latest",
         "@types/mocha": "^10.0.1",
         "@ui5/cli": "^3.0.0",
