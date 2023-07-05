@@ -12,12 +12,4 @@ server:
         transpileTypeScript: true
         excludePatterns:
           - "test/"
-    - name: sap-fe-mockserver
-      mountPath: /
-      afterMiddleware: csp
-      configuration:
-        watch: true
-        services:
-          - urlPath: "/V4/Northwind/Northwind.svc"
-            metadataPath: "./webapp/localService/metadata.xml"
-            mockdataPath: "./webapp/localService/mockdata"
+          - "localService"
