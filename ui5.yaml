@@ -13,3 +13,14 @@ server:
         excludePatterns:
           - "test/"
           - "localService"
+    - name: sap-fe-mockserver
+      beforeMiddleware: compression
+      mountPath: /
+      configuration:
+        watch: true
+        service:
+          urlPath: "/V4/Northwind/Northwind.svc"
+          metadataXmlPath: "./webapp/localService/metadata.xml"
+          mockdataRootPath: "./webapp/localService/mockdata"
+          generateMockData: true
+
